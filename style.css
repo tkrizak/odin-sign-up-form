@@ -163,15 +163,15 @@ input:invalid:focus {
 
 input[required] + .input-error::after {
   content: "";
-  opacity: 0;
+  transform: scale(0);
   position: absolute;
 }
 
 input[required]:invalid:focus + .input-error::after {
   color: red;
   font-size: 0.8rem;
-  transition: opacity ease-in-out 0.3s;
-  opacity: 1;
+  transition: transform ease-in-out 0.3s;
+  transform: scale(1);
 }
 
 input[type="email"]:invalid:focus + .input-error::after {
