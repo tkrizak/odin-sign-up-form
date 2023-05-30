@@ -137,6 +137,7 @@ h2 {
   flex-direction: column;
   gap: 5px;
   width: 250px;
+  position: relative;
 }
 
 input {
@@ -158,6 +159,31 @@ input:valid:focus {
 
 input:invalid:focus {
   border: 1px solid rgb(255, 69, 100);
+}
+
+input[required] + .input-error::after {
+  content: "";
+  opacity: 0;
+  position: absolute;
+}
+
+input[required]:invalid:focus + .input-error::after {
+  color: red;
+  font-size: 0.8rem;
+  transition: opacity ease-in-out 0.3s;
+  opacity: 1;
+}
+
+input[type="email"]:invalid:focus + .input-error::after {
+  content: "Email must meet requirements";
+}
+
+input[type="tel"]:invalid:focus + .input-error::after {
+  content: "Phone number must meet requirements";
+}
+
+input[type="password"]:invalid:focus + .input-error::after {
+  content: "Password must meet requirements";
 }
 
 .form-btn {
